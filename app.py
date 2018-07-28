@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+	return render_template('home.html')
 
 @app.route('/getdelay',methods=['POST','GET'])
 def get_delay():
@@ -17,7 +17,7 @@ def get_delay():
         unique_carrier = result['unique_carrier']
         day_of_week = result['day_of_week']
         dep_hour = result['dep_hour']
-        
+
         pkl_file = open('cat', 'rb')
         index_dict = pickle.load(pkl_file)
         cat_vector = np.zeros(len(index_dict))
@@ -49,7 +49,7 @@ def get_delay():
         
         return render_template('result.html',prediction=prediction)
 
-
+    
 if __name__ == '__main__':
-    app.debug = True
-        app.run()
+	app.debug = True
+	app.run()
